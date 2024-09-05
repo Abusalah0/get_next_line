@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 10:36:12 by abdsalah          #+#    #+#             */
-/*   Updated: 2024/09/04 17:27:36 by abdsalah         ###   ########.fr       */
+/*   Updated: 2024/09/05 09:00:29 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,14 @@
 
 static char	*ft_strcat(char *dest, const char *src)
 {
-	int	i;
-	int	size;
+	char	*dest_ptr;
 
-	i = 0;
-	size = 0;
-	while (dest[size])
-		size++;
-	while (src[i] != '\0')
-	{
-		dest[size + i] = src[i];
-		i++;
-	}
-	dest[size + i] = '\0';
+	dest_ptr = dest;
+	while (*dest_ptr)
+		dest_ptr++;
+	while (*src)
+		*dest_ptr++ = *src++;
+	*dest_ptr = '\0';
 	return (dest);
 }
 
@@ -37,14 +32,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 
 	i = 0;
-	total_len = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	while (s1[i])
-		i++;
-	while (s2[total_len])
+	total_len = 0;
+	while (s1[i++])
 		total_len++;
-	str = malloc(total_len + i + 1);
+	i = 0;
+	while (s2[i++])
+		total_len++;
+	str = malloc(total_len + 1);
 	if (!str)
 		return (NULL);
 	str[0] = '\0';
