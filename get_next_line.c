@@ -6,13 +6,12 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 08:53:07 by abdsalah          #+#    #+#             */
-/*   Updated: 2024/09/05 12:01:21 by abdsalah         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:04:09 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdlib.h>
-#include <unistd.h>
+
 
 // free memory inside buffers
 static void	*ft_free_buffers(char **global_buffer, char *read_buffer)
